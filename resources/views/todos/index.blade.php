@@ -1,4 +1,6 @@
+@extends('layouts.app')
 
+@section('content')
 <a href="/todos/create">新規作成</a>
 
 @foreach($todos as $todo)
@@ -15,3 +17,5 @@
     <hr>
   </ul>
 @endforeach
+
+@endsection

@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <ul>
   <li>{{$todo->name}}</li>
   <li>{{$todo->content}}</li>
@@ -9,3 +12,5 @@
   </form>
   <a href="/todos">一覧</a>
 </ul>
+
+@endsection
