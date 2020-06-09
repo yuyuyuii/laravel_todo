@@ -11,9 +11,7 @@
     <label for="content">content</label>
     <textarea name="content"  cols="30" rows="10">{{$todo->content}}</textarea>
   </div>
-  <div>
-    <input type="number" name="user_id" value="{{$todo->user_id}}">
-  </div>
+  <input type="hidden" name="user_id" value="{{$todo->user_id}}">
   <input type="submit" value="update">
   <input type="hidden" name="_method" value="patch">
   <a href="/todos">戻る</a>

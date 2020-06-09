@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Todo; # Todoモデルと紐付くので追記する
-
+use App\User;
+use Illuminate\Support\Facades\Auth;
 class TodoController extends Controller
 {
     /**
@@ -13,9 +14,11 @@ class TodoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
+      $user = Auth::user();
       $todos = Todo::all();
-      return view('todos/index', ["todos" => $todos]);
+      // $todos = User::has('todo')->get();
+      return view('todos/index', compact("todos", "user"));
     }
 
     /**
@@ -39,7 +42,7 @@ class TodoController extends Controller
       $todo = new Todo;
       $todo->name = $request->name;
       $todo->content = $request->content;
-      $todo->user_id = $request->user_id;
+      $todo->user_id = $request->user()->id;
       $todo->save();
       return redirect('/todos');
     }
@@ -53,7 +56,7 @@ class TodoController extends Controller
     public function show($id)
     {
       $todo = Todo::find($id);
-      return view("todos/show", ["todo" => $todo]);
+      return view("todos/show", compact("todo"));
     }
 
     /**
@@ -65,7 +68,7 @@ class TodoController extends Controller
     public function edit($id)
     {
       $todo = Todo::find($id);
-      return view('todos/edit', ['todo' => $todo]);
+      return view('todos/edit', compact('todo'));
     }
 
     /**
