@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource("todos", "TodoController");
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
