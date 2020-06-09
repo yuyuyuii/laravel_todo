@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <form action="/todos/{{$todo->id}}" method="post">
 {{csrf_field()}}
   <div>
@@ -15,3 +18,4 @@
   <input type="hidden" name="_method" value="patch">
   <a href="/todos">戻る</a>
 </form>
+@endsection

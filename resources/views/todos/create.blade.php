@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <form action="/todos" method="post">
 {{csrf_field()}}
   <div>
@@ -14,3 +17,4 @@
   <input type="submit" value="submit">
   <a href="/todos">戻る</a>
 </form>
+@endsection
