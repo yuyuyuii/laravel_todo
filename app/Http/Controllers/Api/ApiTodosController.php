@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
+use App\Http\Requests\ApiTodoRequest;
 use App\Todo;
 use App\Http\Controllers\Controller;
 
@@ -26,7 +27,7 @@ class ApiTodosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ApiTodoRequest $request)
     {
       $todo = new Todo;
       $todo->name = $request->name;
